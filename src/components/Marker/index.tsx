@@ -1,10 +1,9 @@
 import React from 'react';
 
 import pinIcon from '../../assets/pin.svg';
-import packageIcon from '../../assets/package.svg';
 import { IMarkerData } from '../../hooks/map';
 
-import { Container } from './styles';
+import { Container, CircleMarker } from './styles';
 
 interface IMarker {
   data?: IMarkerData;
@@ -18,7 +17,7 @@ const Marker: React.FC<IMarker> = ({ data, lng, lat }) => {
     // @ts-ignore
     <Container lng={lng} lat={lat}>
       {data ? (
-        <img src={packageIcon} alt="Icone package" />
+        <CircleMarker radius={data.radius} color={data.color} />
       ) : (
         <img src={pinIcon} alt="Icone pin" />
       )}
